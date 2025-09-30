@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE PAEDIATRIC JOURNAL - Medical Research Publication</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 40px;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        /* Main Content Area */
+        .main-container {
+            background: linear-gradient(135deg, #008227 0%, #0066cc 100%);
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        /* Login Section */
+        .login-section {
+            background: white;
+            border-radius: 50px;
+            padding: 50px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Tree Logo */
+        .tree-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tree-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,25 Q30,15 35,15 Q40,15 40,20 L40,35 Q40,45 50,55 Q60,45 60,35 L60,20 Q60,15 65,15 Q70,15 70,25" stroke="%230066cc" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="35" cy="15" r="4" fill="%230066cc"/><circle cx="65" cy="15" r="4" fill="%230066cc"/><path d="M50,55 Q35,70 35,85 Q35,92 42,92 Q50,92 50,85 Q50,92 58,92 Q65,92 65,85 Q65,70 50,55 Z" fill="%23ff6b6b" stroke="%23ff6b6b" stroke-width="1"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+
+        .brand-name {
+            color: #d4a574;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-weight: 400;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0066cc;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-bottom-color: #0066cc;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 14px;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .continue-btn:hover {
+            background: #d0d0d0;
+        }
+
+        .continue-btn.active {
+            background: #0066cc;
+            color: white;
+        }
+
+        .continue-btn.active:hover {
+            background: #0052a3;
+        }
+
+        /* Google Sign-In Button */
+        .google-signin-btn {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .google-signin-btn:hover {
+            background: #f8f9fa;
+            border-color: #0066cc;
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .org-signin-btn {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            border: 2px solid #0066cc;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #0066cc;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .org-signin-btn:hover {
+            background: #f0f7ff;
+        }
+
+        .help-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .help-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .help-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Additional Info Section */
+        .info-section {
+            background: #f8f9fa;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .info-section h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .info-section p {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .login-section {
+                padding: 30px;
+            }
+        }
+        /* Footer */
+.footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 60px 40px 30px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.footer-section p {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #0066cc;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: #0066cc;
+    transform: translateY(-3px);
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+}
+
+.newsletter-form button {
+    padding: 12px 20px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #0052a3;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #0066cc;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">THE PAEDIATRIC JOURNAL</a>
+            <nav class="nav-links">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>            
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="login-section">
+            <div class="tree-logo">
+                <div class="tree-icon"></div>
+                <div class="brand-name">Paediatrics</div>
+            </div>
+            
+            <h1>Welcome</h1>
+            <p class="subtitle">Enter your email to continue with PaediatricsJournal.com</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <button type="submit" class="continue-btn" id="continueBtn">Continue</button>
+            </form>
+
+            <!-- Google Sign-In Button -->
+            <button class="google-signin-btn" id="googleSignInBtn">
+                <svg class="google-icon" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Continue with Google
+            </button>
+            
+            <button class="org-signin-btn">Sign in via your organization</button>
+            
+            <div class="help-link">
+                <a href="#">Get help with access</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <h2>Leading Medical Research </h2>
+        <p>THE PAEDIATRICS JOURNAL is a leading medical journal, publishing high-quality peer-reviewed research that advances medical science and improves clinical practice.</p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>Peer-Reviewed Research</h3>
+                <p>Rigorous peer review ensures the highest standards of scientific integrity and clinical relevance.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Global Impact</h3>
+                <p>Research from experienced professionals, reaching healthcare professionals worldwide.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Open Access Options</h3>
+                <p>Making vital research accessible to all with flexible open access publishing models.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Clinical Guidelines</h3>
+                <p>Evidence-based recommendations that shape medical practice and health policy globally.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAFAXlBd7TvvfQBw-eD_kiMo2EsJQdBQVU",
+            authDomain: "eclearancepro.firebaseapp.com",
+            projectId: "eclearancepro",
+            storageBucket: "eclearancepro.firebasestorage.app",
+            messagingSenderId: "645609499599",
+            appId: "1:645609499599:web:1ddc18d56e1819d86100ba"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const googleProvider = new GoogleAuthProvider();
+
+        // DOM Elements
+        const emailInput = document.getElementById('email');
+        const continueBtn = document.getElementById('continueBtn');
+        const loginForm = document.getElementById('loginForm');
+        const googleSignInBtn = document.getElementById('googleSignInBtn');
+
+        // Form validation and interaction
+        emailInput.addEventListener('input', function() {
+            if (this.value && this.validity.valid) {
+                continueBtn.classList.add('active');
+            } else {
+                continueBtn.classList.remove('active');
+            }
+        });
+
+        // Email sign-in (existing functionality)
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value;
+            if (email) {
+                continueBtn.classList.add('loading');
+                continueBtn.textContent = 'Signing in...';
+
+                try {
+                    // Try to sign in with email (you'll need to implement password collection)
+                    // For now, just showing the email was captured
+                    alert(`Welcome! Continuing with email: ${email}`);
+                    
+                    // In a real application, you would:
+                    // 1. Show a password input field
+                    // 2. Call signInWithEmailAndPassword(auth, email, password)
+                    // 3. Redirect to the appropriate page
+                    
+                } catch (error) {
+                    console.error('Sign-in error:', error);
+                    alert('Sign-in failed. Please try again.');
+                } finally {
+                    continueBtn.classList.remove('loading');
+                    continueBtn.textContent = 'Continue';
+                }
+            }
+        });
+
+        // Google Sign-In
+        googleSignInBtn.addEventListener('click', async function() {
+            googleSignInBtn.classList.add('loading');
+            
+            try {
+                const result = await signInWithPopup(auth, googleProvider);
+                const user = result.user;
+                
+                console.log('Google sign-in successful:', user);
+                
+                // Redirect to index2.html on successful login
+                window.location.href = 'index2.html';
+                
+            } catch (error) {
+                console.error('Google sign-in error:', error);
+                
+                let errorMessage = 'Google sign-in failed. Please try again.';
+                
+                switch (error.code) {
+                    case 'auth/popup-closed-by-user':
+                        errorMessage = 'Sign-in cancelled. Please try again.';
+                        break;
+                    case 'auth/popup-blocked':
+                        errorMessage = 'Please allow popups for this site to sign in with Google.';
+                        break;
+                    case 'auth/unauthorized-domain':
+                        errorMessage = 'This domain is not authorized. Please contact support.';
+                        break;
+                }
+                
+                alert(errorMessage);
+            } finally {
+                googleSignInBtn.classList.remove('loading');
+            }
+        });
+
+        // Organization sign-in button (existing functionality)
+        document.querySelector('.org-signin-btn').addEventListener('click', function() {
+            alert('Organization sign-in would redirect to your SSO provider');
+        });
+
+        // Monitor authentication state
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                console.log('User is signed in:', user.email);
+                // User is signed in, you can redirect or update UI here
+            } else {
+                console.log('No user signed in');
+            }
+        });
+    </script>
+     <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>THE PAEDIATRIC JOURNAL</h3>
+                <p>Leading medical research publication dedicated to advancing pediatric healthcare through evidence-based research and clinical excellence.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Editorial Board</a></li>
+                    <li><a href="#">Author Guidelines</a></li>
+                    <li><a href="#">Peer Review</a></li>
+                    <li><a href="#">Open Access</a></li>
+                    <li><a href="#">Archive</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Submit Manuscript</a></li>
+                    <li><a href="#">For Reviewers</a></li>
+                    <li><a href="#">Indexing</a></li>
+                    <li><a href="#">Publication Ethics</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to receive the latest research and journal updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 The Paediatric Journal. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

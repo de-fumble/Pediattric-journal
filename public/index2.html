@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatricx Journal - Advancing Pediatric Medicine</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <!-- Add other Firebase SDKs as needed -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script> -->
+</head>
+<body>
+    <!-- Alert Banner -->
+    <div class="alert-banner">
+        <span class="alert-icon">🔔</span>
+        <span>Sign up for Journal Alerts</span>
+        <div style="margin-left: 20px; padding: 8px 16px; background: rgba(255,255,255,0.2); border-radius: 4px; font-size: 14px;">
+            PEDIATRICX JOURNAL<br>
+            <small>Pediatric Medicine & Child Health</small>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">Journal</div>
+            <div class="auth-links">
+                <a href="#">Publish</a>
+                <a href="#">Log in</a>
+                <a href="#">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav">
+            <ul class="nav-menu">
+                <li><a href="#">Journals</a></li>
+                <li><a href="#">Publish</a></li>
+                <li><a href="#">Clinical</a></li>
+                <li><a href="#">Global health</a></li>
+                <li><a href="#">Multimedia</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for...">
+                <button class="search-btn">🔍</button>
+                <a href="#" class="advanced-search">Advanced<br>search</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Advancing care in Pediatric Medicine</h1>
+            </div>
+            <div class="hero-series">
+                <div class="series-card">
+                    <div class="series-label">SERIES</div>
+                    <div class="series-title">New landscape of pediatric diagnosis and treatment</div>
+                    <div class="series-journal">Pediatricx Journal</div>
+                    <div class="series-date">22 Sept 2025</div>
+                </div>
+                <div class="series-card">
+                    <div class="series-label">SERIES</div>
+                    <div class="series-title">Treatment advances in childhood diseases</div>
+                    <div class="series-journal">Pediatricx Journal</div>
+                    <div class="series-date">22 Sept 2025</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="nav-arrow left">‹</button>
+        <button class="nav-arrow right">›</button>
+        
+        <!-- Pagination Dots -->
+        <div class="pagination-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="latest-news">
+        <div class="news-container">
+            <h2 class="section-title">Latest news and comment</h2>
+            <!-- News content would go here -->
+        </div>
+    </section>
+
+    <script>
+          const firebaseConfig = {
+      apiKey: "AIzaSyAFAXlBd7TvvfQBw-eD_kiMo2EsJQdBQVU",
+      authDomain: "eclearancepro.firebaseapp.com",
+      projectId: "eclearancepro",
+      storageBucket: "eclearancepro.firebasestorage.app",
+      messagingSenderId: "645609499599",
+      appId: "1:645609499599:web:1ddc18d56e1819d86100ba"
+    };
+    firebase.initializeApp(firebaseConfig);
+        // Simple carousel functionality
+        let currentSlide = 0;
+        const dots = document.querySelectorAll('.dot');
+        const leftArrow = document.querySelector('.nav-arrow.left');
+        const rightArrow = document.querySelector('.nav-arrow.right');
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentSlide = currentSlide > 0 ? currentSlide - 1 : dots.length - 1;
+            updateDots();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentSlide = currentSlide < dots.length - 1 ? currentSlide + 1 : 0;
+            updateDots();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateDots();
+            });
+        });
+
+        // Search functionality
+        const searchBox = document.querySelector('.search-box');
+        const searchBtn = document.querySelector('.search-btn');
+
+        searchBtn.addEventListener('click', () => {
+            const query = searchBox.value.trim();
+            if (query) {
+                alert(`Searching for: ${query}`);
+            }
+        });
+
+        searchBox.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
