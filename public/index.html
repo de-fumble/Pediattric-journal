@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE PAEDIATRIC JOURNAL - Medical Research Publication</title>
+    <title>Delta Journal Of Clinical Practice - Medical Research Publication</title>
+    <link rel="icon" href="logo (2).png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -41,6 +42,14 @@
             letter-spacing: 3px;
             color: #1a1a1a;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
         }
 
         .nav-links {
@@ -62,7 +71,7 @@
 
         /* Main Content Area */
         .main-container {
-            background: linear-gradient(135deg, #008227 0%, #0066cc 100%);
+            background: linear-gradient(135deg, #82c182 0%, #0066cc 100%);
             min-height: calc(100vh - 80px);
             display: flex;
             align-items: center;
@@ -80,18 +89,16 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
-        /* Tree Logo */
-        .tree-logo {
+        /* Logo in login section */
+        .login-logo {
             text-align: center;
             margin-bottom: 20px;
         }
 
-        .tree-icon {
-            width: 80px;
-            height: 80px;
+        .login-logo img {
+            width: 120px;
+            height: auto;
             margin: 0 auto;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,25 Q30,15 35,15 Q40,15 40,20 L40,35 Q40,45 50,55 Q60,45 60,35 L60,20 Q60,15 65,15 Q70,15 70,25" stroke="%230066cc" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="35" cy="15" r="4" fill="%230066cc"/><circle cx="65" cy="15" r="4" fill="%230066cc"/><path d="M50,55 Q35,70 35,85 Q35,92 42,92 Q50,92 50,85 Q50,92 58,92 Q65,92 65,85 Q65,70 50,55 Z" fill="%23ff6b6b" stroke="%23ff6b6b" stroke-width="1"/></svg>') no-repeat center;
-            background-size: contain;
         }
 
         .brand-name {
@@ -300,164 +307,168 @@
                 padding: 30px;
             }
         }
+        
         /* Footer */
-.footer {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 60px 40px 30px;
-}
+        .footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 60px 40px 30px;
+        }
 
-.footer-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-}
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
 
-.footer-section h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #fff;
-    font-weight: 500;
-}
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: 500;
+        }
 
-.footer-section p {
-    color: #bbb;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
+        .footer-section p {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
 
-.footer-section ul {
-    list-style: none;
-}
+        .footer-section ul {
+            list-style: none;
+        }
 
-.footer-section ul li {
-    margin-bottom: 12px;
-}
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
 
-.footer-section ul li a {
-    color: #bbb;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-}
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
 
-.footer-section ul li a:hover {
-    color: #0066cc;
-}
+        .footer-section ul li a:hover {
+            color: #0066cc;
+        }
 
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-.social-links a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s;
-}
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
 
-.social-links a:hover {
-    background: #0066cc;
-    transform: translateY(-3px);
-}
+        .social-links a:hover {
+            background: #0066cc;
+            transform: translateY(-3px);
+        }
 
-.newsletter-form {
-    display: flex;
-    margin-top: 15px;
-}
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
 
-.newsletter-form input {
-    flex: 1;
-    padding: 12px 15px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-    font-size: 14px;
-}
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
 
-.newsletter-form button {
-    padding: 12px 20px;
-    background: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s;
-}
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
 
-.newsletter-form button:hover {
-    background: #0052a3;
-}
+        .newsletter-form button:hover {
+            background: #0052a3;
+        }
 
-.footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-top: 30px;
-    border-top: 1px solid #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-.footer-bottom p {
-    color: #888;
-    font-size: 14px;
-}
+        .footer-bottom p {
+            color: #888;
+            font-size: 14px;
+        }
 
-.footer-links {
-    display: flex;
-    gap: 25px;
-}
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
 
-.footer-links a {
-    color: #888;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-}
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
 
-.footer-links a:hover {
-    color: #0066cc;
-}
+        .footer-links a:hover {
+            color: #0066cc;
+        }
 
-/* Responsive Footer */
-@media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
 
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
 
-    .footer-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="#" class="logo">THE PAEDIATRIC JOURNAL</a>
+            <a href="#" class="logo">
+                <img src="logo (2).png" alt="Delta Journal Logo">
+                Delta Journal Of Clinical Practice
+            </a>
             <nav class="nav-links">
                 <a href="#"></a>
                 <a href="#"></a>
@@ -472,13 +483,13 @@
     <!-- Main Content -->
     <div class="main-container">
         <div class="login-section">
-            <div class="tree-logo">
-                <div class="tree-icon"></div>
-                <div class="brand-name">Paediatrics</div>
+            <div class="login-logo">
+                <img src="logo (2).png" alt="Paediatrics Journal Logo">
+                <div class="brand-name">Delta Journal Of Clinical Practice</div>
             </div>
             
             <h1>Welcome</h1>
-            <p class="subtitle">Enter your email to continue with PaediatricsJournal.com</p>
+            <p class="subtitle">Enter your email to continue with Delta Journal Of Clinical Practice</p>
             
             <form id="loginForm">
                 <div class="form-group">
@@ -511,7 +522,7 @@
     <!-- Info Section -->
     <section class="info-section">
         <h2>Leading Medical Research </h2>
-        <p>THE PAEDIATRICS JOURNAL is a leading medical journal, publishing high-quality peer-reviewed research that advances medical science and improves clinical practice.</p>
+        <p>The Delta Journal Of Clinical Practice is a leading medical journal, publishing high-quality peer-reviewed research that advances medical science and improves clinical practice.</p>
         
         <div class="features">
             <div class="feature-card">
@@ -579,7 +590,7 @@
                 continueBtn.textContent = 'Signing in...';
 
                 try {
-                    // Try to sign in with email (you'll need to implement password collection)
+                    // Try to sign in with email 
                     // For now, just showing the email was captured
                     alert(`Welcome! Continuing with email: ${email}`);
                     
@@ -649,11 +660,12 @@
             }
         });
     </script>
-     <footer class="footer">
+    
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>THE PAEDIATRIC JOURNAL</h3>
-                <p>Leading medical research publication dedicated to advancing pediatric healthcare through evidence-based research and clinical excellence.</p>
+                <h3>Delta Journal Of Clinical Practice </h3>
+                <p>Leading medical research publication dedicated to advancing healthcare through evidence-based research and clinical excellence.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Twitter">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -713,7 +725,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 The Paediatric Journal. All rights reserved.</p>
+            <p>&copy; 2024 Delta Journal Of Clinical Practice. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
